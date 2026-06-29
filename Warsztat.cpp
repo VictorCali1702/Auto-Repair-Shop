@@ -26,14 +26,14 @@ void dodajZlecenie(vector<Zlecenie>& lista) {
     cin.ignore();
     cout << "Klient: ";
     getline(cin, z.klient);
-
+    
     cout << "Usługa: ";
     getline(cin, z.usluga);
 
     cout << "Cena: ";
     cin >> z.cena;
 
-    lista.push_back(z);
+    lista.push_back(z); // oznacza dodaj element na koniec wektora
 
     cout << "Dodano zlecenie!\n";
 
@@ -108,6 +108,6 @@ int main() {
                 cout << "Zły wybór\n";
         } 
     } while(wybor != 0);
-    
+    cout << "Hello";
     return 0;
 } 
