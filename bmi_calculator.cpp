@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ int main () {
 
     double BMI = waga / pow(wzrost_m, 2);
 
-    cout << "BMI wynosi: " << BMI;
+    cout << "\nBMI wynosi: " << fixed << setprecision(2) << BMI;
     cout << "\nTwoje BMI: ";
     
     if (BMI <= 18.5){
@@ -40,9 +41,6 @@ int main () {
     } else {
         cout << "Otyłość";
     }
-
-
-
 
     return 0;
 }
