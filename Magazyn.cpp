@@ -65,7 +65,7 @@ void wyswietlProdukty(vector<Produkt>& lista) {
 
 
 int main (){
-    
+    cout << "f":
 
     return 0;
 }
