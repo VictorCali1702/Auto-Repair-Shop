@@ -155,6 +155,64 @@ void szukajProduktu(vector<Produkt>& lista){
     }
 }
 
+// Metoda licząca wartość naszego magazynu
+void wartoscMagazynu(vector<Produkt>& lista){
+    cout << "\n===== Wartość towarów na magazynie =====\n";
+
+    string nazwa;
+    int wybor;
+
+    if(lista.empty()){
+        cout << "\nBrak towaru\nWartość towaru wynosi 0.00 PLN\n";
+        return;
+    }
+
+    cout << "1. Sprawdź wartość danego produktu\n";
+    cout << "2. Pokaż wartość całego magazynu\n";
+    cout << "Wybór: ";
+    cin >> wybor;
+
+    switch(wybor){
+        case 1:
+            cin.ignore();
+            cout << "Produkt: ";
+            getline(cin, nazwa);
+
+            for(size_t i = 0; i < lista.size(); i++){
+                if(lista[i].nazwa == nazwa){
+                    double wartosc = lista[i].cena * lista[i].ilosc;
+
+                    cout << "\nWartość towaru na magazynie wynosi: " << fixed << setprecision(2) << 
+                        wartosc << " PLN";
+                
+                    return;
+                }
+            }
+            
+            cout << "\nNie znaleziono danego produktu!\n";
+            break;
+
+        case 2:
+            {
+                double magazynWartosc = 0;
+
+                for(size_t i = 0; i < lista.size(); i++){
+                    double wartosc = lista[i].cena * lista[i].ilosc;
+                    magazynWartosc += wartosc;
+                }
+
+                cout << "\nWartość magazynu wynosi: " << fixed << setprecision(2) << magazynWartosc << " PLN\n";
+                
+                break;
+            }  
+             
+        default:
+            cout << "\nZły wybór\n";
+            break;
+    }   
+
+}
+
 // Główna część naszego programu
 int main (){
     vector<Produkt> lista;
@@ -180,6 +238,9 @@ int main (){
                 break;
             case 5:
                 szukajProduktu(lista);
+                break;
+            case 6:
+                wartoscMagazynu(lista);
                 break;
             case 0:
                 cout << "Program zakończony!\n";
