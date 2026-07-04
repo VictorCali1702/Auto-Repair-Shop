@@ -109,23 +109,25 @@ void zmienIlosc(vector<Produkt>& lista){
 
     for(size_t i = 0; i < lista.size(); i++) {
         if (lista[i].nazwa == nazwa) {
+
             cout << "Podaj nową ilość: ";
             cin >> ilosc;
 
             if (ilosc < 0){
-                cout << "Zła wartość";
+                cout << "Zła wartość\n";
                 return;
             }
-            else{
-                lista[i].ilosc = ilosc;
-            }
+            
+            lista[i].ilosc = ilosc;
+            
+            cout << "\nNowy stan " << nazwa 
+                 << " wynosi " << ilosc 
+                 << " sztuk\n";
 
-            cout << "\nNowy stan " << nazwa << " wynosi " << ilosc << " sztuk\n";
             return;
         }
-
-        cout << "\nNie znaleziono produktu.\n";
-    }
+    } 
+    cout << "\nNie znaleziono produktu.\n";
 }
 
 // Metoda do szukania naszych produktów
@@ -142,41 +144,43 @@ void szukajProduktu(vector<Produkt>& lista){
     getline(cin, nazwa);
 
     for(size_t i = 0; i < lista.size(); i++){
+        
         if(lista[i].nazwa == nazwa){
+
             cout << "\n===== Znaleziono produkt! =====\n";
             cout << "\nInformacje produktu: " << nazwa << endl;
-            cout << "\nNazwa: " << lista[i].nazwa << "\n"
-                    "Cena: " << lista[i].cena << "PLN" << "\n"
-                    "Ilość: " << lista[i].ilosc << " sztuk\n"
-                    "Producent: " << lista[i].producent << endl;
+            
+            cout << "Nazwa: " << lista[i].nazwa << "\n";
+            cout << "Cena: " << lista[i].cena << "PLN" << "\n";
+            cout << "Ilość: " << lista[i].ilosc << " sztuk\n";
+            cout << "Producent: " << lista[i].producent << "\n";
+            
             return;
         }
-
-        cout << "\nBrak danego towaru!\n";
     }
+    cout << "\nBrak danego towaru!\n";
 }
 
 // Metoda licząca wartość naszego magazynu
 void wartoscMagazynu(vector<Produkt>& lista){
-    cout << "\n===== Wartość towarów na magazynie =====\n";
-
+    
     string nazwa;
     int wybor;
 
     if(lista.empty()){
-        cout << "\nBrak towaru\nWartość towaru wynosi 0.00 PLN\n";
+        cout << "\nBrak towaru\nWartość magazynu wynosi 0.00 PLN\n";
         return;
     }
-
+    cout << "\n===== Wartość towarów na magazynie =====\n";
     cout << "1. Sprawdź wartość danego produktu\n";
     cout << "2. Pokaż wartość całego magazynu\n";
-    cout << "Wybór: ";
+    cout << "\nWybór: ";
     cin >> wybor;
 
     switch(wybor){
         case 1:
             cin.ignore();
-            cout << "Produkt: ";
+            cout << "\nProdukt: ";
             getline(cin, nazwa);
 
             for(size_t i = 0; i < lista.size(); i++){
@@ -184,7 +188,7 @@ void wartoscMagazynu(vector<Produkt>& lista){
                     double wartosc = lista[i].cena * lista[i].ilosc;
 
                     cout << "\nWartość towaru na magazynie wynosi: " << fixed << setprecision(2) << 
-                        wartosc << " PLN";
+                        wartosc << " PLN\n";
                 
                     return;
                 }
