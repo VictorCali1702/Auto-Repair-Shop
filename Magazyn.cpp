@@ -12,6 +12,7 @@ struct Produkt {
     string producent;
 };
 
+// Metoda zwracająca menu
 void pokazMenu() {
     cout << "\n===== MAGAZYN =====\n";
     cout << "1. Dodaj produkt\n";
@@ -22,6 +23,7 @@ void pokazMenu() {
     cout << "0. Wyjście\n";
 }
 
+// Metoda do dodawania produktu do magazynu
 void dodajProdukt(vector<Produkt>& lista) {
     Produkt p;
 
@@ -41,9 +43,10 @@ void dodajProdukt(vector<Produkt>& lista) {
 
     lista.push_back(p);
 
-    cout << "Produkt został pomyślnie dodany!\n";
+    cout << "\nProdukt został pomyślnie dodany!\n";
 }
 
+// Metoda do wyświetlania produktów magazynu
 void wyswietlProdukty(vector<Produkt>& lista) {
     cout << "\n===== STAN MAGAZYNU =====\n";
 
@@ -61,6 +64,7 @@ void wyswietlProdukty(vector<Produkt>& lista) {
     }
 }
 
+// Metoda to usuwania towaru z magazynu
 void usunProdukt(vector<Produkt>& lista) {
     string nazwa;
     if (lista.empty()){
@@ -86,12 +90,13 @@ void usunProdukt(vector<Produkt>& lista) {
 
 }
 
+// Metoda do zmiany ilości towaru na stanie
 void zmienIlosc(vector<Produkt>& lista){
     int ilosc;
     string nazwa;
 
     if (lista.empty()) {
-        cout << "Brak towaru na stanie\n";
+        cout << "\nBrak towaru na stanie\n";
         cout << "Brak możliwości zmianu ilości\n";
 
         return;
@@ -114,7 +119,7 @@ void zmienIlosc(vector<Produkt>& lista){
                 lista[i].ilosc = ilosc;
             }
 
-            cout << "Nowy stan " << nazwa << " wynosi " << ilosc << " sztuk";
+            cout << "\nNowy stan " << nazwa << " wynosi " << ilosc << " sztuk\n";
             return;
         }
 
@@ -122,7 +127,35 @@ void zmienIlosc(vector<Produkt>& lista){
     }
 }
 
+// Metoda do szukania naszych produktów
+void szukajProduktu(vector<Produkt>& lista){
+    string nazwa;
 
+    if (lista.empty()) {
+        cout << "\nMagazyn pusty\n";
+        return;
+    }
+
+    cin.ignore();
+    cout << "Wyszukaj produktu: ";
+    getline(cin, nazwa);
+
+    for(size_t i = 0; i < lista.size(); i++){
+        if(lista[i].nazwa == nazwa){
+            cout << "\n===== Znaleziono produkt! =====\n";
+            cout << "\nInformacje produktu: " << nazwa << endl;
+            cout << "\nNazwa: " << lista[i].nazwa << "\n"
+                    "Cena: " << lista[i].cena << "PLN" << "\n"
+                    "Ilość: " << lista[i].ilosc << " sztuk\n"
+                    "Producent: " << lista[i].producent << endl;
+            return;
+        }
+
+        cout << "\nBrak danego towaru!\n";
+    }
+}
+
+// Główna część naszego programu
 int main (){
     vector<Produkt> lista;
     int wybor;
@@ -146,6 +179,7 @@ int main (){
                 zmienIlosc(lista);
                 break;
             case 5:
+                szukajProduktu(lista);
                 break;
             case 0:
                 cout << "Program zakończony!\n";
