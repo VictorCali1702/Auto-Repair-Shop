@@ -86,6 +86,42 @@ void usunProdukt(vector<Produkt>& lista) {
 
 }
 
+void zmienIlosc(vector<Produkt>& lista){
+    int ilosc;
+    string nazwa;
+
+    if (lista.empty()) {
+        cout << "Brak towaru na stanie\n";
+        cout << "Brak możliwości zmianu ilości\n";
+
+        return;
+    }
+
+    cin.ignore();
+    cout << "Jakiemu towarowi chcesz zmienić ilość? ";
+    getline(cin, nazwa);
+
+    for(size_t i = 0; i < lista.size(); i++) {
+        if (lista[i].nazwa == nazwa) {
+            cout << "Podaj nową ilość: ";
+            cin >> ilosc;
+
+            if (ilosc < 0){
+                cout << "Zła wartość";
+                return;
+            }
+            else{
+                lista[i].ilosc = ilosc;
+            }
+
+            cout << "Nowy stan " << nazwa << " wynosi " << ilosc << " sztuk";
+            return;
+        }
+
+        cout << "\nNie znaleziono produktu.\n";
+    }
+}
+
 
 int main (){
     vector<Produkt> lista;
@@ -107,6 +143,7 @@ int main (){
                 usunProdukt(lista);
                 break;
             case 4:
+                zmienIlosc(lista);
                 break;
             case 5:
                 break;
