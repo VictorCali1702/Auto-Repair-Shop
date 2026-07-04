@@ -20,6 +20,7 @@ void pokazMenu() {
     cout << "3. Usuń produkt\n";
     cout << "4. Zmień ilość\n";
     cout << "5. Szukaj produktu\n";
+    cout << "6. Sprawdź wartość towaru lub magazynu\n";
     cout << "0. Wyjście\n";
 }
 
