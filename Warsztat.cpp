@@ -108,6 +108,6 @@ int main() {
                 cout << "Zły wybór\n";
         } 
     } while(wybor != 0);
-    cout << "Hello";
+    
     return 0;
 } 
