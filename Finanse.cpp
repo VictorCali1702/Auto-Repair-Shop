@@ -19,6 +19,7 @@ int main() {
     
     double kwotaNetto = przychod - podatekKwota;
     cout << "\nPrzychód Netto: " << kwotaNetto << " PLN";
+    cout << "opcje";
     
     return 0;
 }
