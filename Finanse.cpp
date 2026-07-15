@@ -20,6 +20,7 @@ int main() {
     double kwotaNetto = przychod - podatekKwota;
     cout << "\nPrzychód Netto: " << kwotaNetto << " PLN";
     cout << "opcje";
+    cout << "Opcje finansowania";
     
     return 0;
 }
