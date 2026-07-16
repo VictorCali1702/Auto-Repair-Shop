@@ -21,6 +21,8 @@ int main() {
     cout << "\nPrzychód Netto: " << kwotaNetto << " PLN";
     cout << "opcje";
     cout << "Opcje finansowania";
+    int procent;
+    cin >> procent;
     
     return 0;
 }
