@@ -5,6 +5,11 @@
 
 using namespace std;
 
+struct Przychod {
+    float kwota;
+    string opis;
+};
+
 void systemKsiegowy() {
     cout << "1. Dodaj przychód\n";
     cout << "2. Dodaj wydatek\n";
@@ -14,6 +19,21 @@ void systemKsiegowy() {
     cout << "6. Zapisz do pliku\n";
     cout << "7. Wczytaj z pliku\n";
     cout << "0. Koniec Programu\n";
+}
+
+void dodajPrzychod(vector<Przychod>& lista) {
+    Przychod p;
+
+    cin.ignore();
+    cout << "Kwota: ";
+    cin >> p.kwota;
+
+    cout << "Opis: ";
+    getline(cin, p.opis);
+
+    lista.push_back(p);
+
+    cout << "Przychód zarejestrowany!\n";
 }
 
 int main() {
@@ -31,6 +51,6 @@ int main() {
     double kwotaNetto = przychod - podatekKwota;
     cout << "\nPrzychód Netto: " << kwotaNetto << " PLN";
 
-    
+    // dodajPrzychod(lista);
     return 0;
 }
