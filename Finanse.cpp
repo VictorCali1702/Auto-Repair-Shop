@@ -52,5 +52,7 @@ int main() {
     cout << "\nPrzychód Netto: " << kwotaNetto << " PLN";
 
     // dodajPrzychod(lista);
+    cout << "Przycchod: ";
+    
     return 0;
 }
