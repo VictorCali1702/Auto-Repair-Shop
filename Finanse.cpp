@@ -53,6 +53,7 @@ int main() {
 
     // dodajPrzychod(lista);
     cout << "Przycchod: ";
-    
+    cout << "Koszty: ";
+
     return 0;
 }
