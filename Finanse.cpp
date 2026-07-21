@@ -55,5 +55,9 @@ int main() {
     cout << "Przycchod: ";
     cout << "Koszty: ";
 
+    int koszta() {
+        return 0;
+    }
+
     return 0;
 }
