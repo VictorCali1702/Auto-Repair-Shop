@@ -57,6 +57,8 @@ int main() {
 
     int koszta() {
         cout << "Podaj koszta w tym miesiącu: ";
+        int koszta;
+        cin >> koszta;
         return 0;
     }
 
